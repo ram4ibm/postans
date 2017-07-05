@@ -1,0 +1,18 @@
+---
+- name: set python3 as default
+  command: "{{item}}"
+  with_items:
+    - "unlink /usr/bin/python"
+    - "ln -s /usr/bin/python3 /usr/bin/python"
+
+- name: set pip to use python3
+  command: "{{item}}"
+  with_items:
+    - "/usr/bin/curl 'https://bootstrap.pypa.io/get-pip.py' -o {{ install_backup_dir }}/get-pip.py"
+    - "python {{ install_backup_dir }}/get-pip.py"
+
+- name: check pip version
+  command: "pip -V"
+  register: pipout
+- debug:
+    msg: "PIP upgraded with output {{ pipout.stdout }}"   

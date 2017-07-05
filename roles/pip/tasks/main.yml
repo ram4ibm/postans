@@ -1,0 +1,14 @@
+---
+- name: install python pip
+  yum: name={{item}} state=present
+  with_items:
+  - python34
+  - python-pip
+  - python-wheel
+  - python-setuptools
+  - lzop
+  - pv
+
+- include: correctyum.yml
+- include: correctpip.yml
+- include: pip.yml

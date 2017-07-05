@@ -1,0 +1,7 @@
+---
+- name: configure wale
+  command: {{item}}
+  with_items:
+    - "mkdir -p {{ wale_config_dir_env }}"
+    - "chown -R postgres:postgres {{ wale_config_dir }}"
+  

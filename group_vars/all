@@ -1,0 +1,6 @@
+---
+
+install_backup_dir: /tmp/instabkp
+wale_config_dir: /etc/wal-e.d
+wale_config_dir_env: /etc/wal-e.d/env
+yumlibexec: /usr/libexec/urlgrabber-ext-down

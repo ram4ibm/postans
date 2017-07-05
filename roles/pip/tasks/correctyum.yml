@@ -1,0 +1,13 @@
+---
+- name: Backup existing yum file
+  command: "{{item}}"
+  with_items:
+    - "mkdir -p {{install_backup_dir}}"
+    - "cp {{yumlocation}} {{install_backup_dir}}/"
+    - "cp {{yumlibexec}} {{install_backup_dir}}/"
+
+- name: copy yum with python2
+  template: src=yumwithpython2 dest={{yumlocation}}
+
+- name: copy yum libexec with python2
+  template: src=yumlibexecwithpython2 dest={{yumlibexec}}

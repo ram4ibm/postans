@@ -1,0 +1,32 @@
+---
+- name: Upgrade pip to have the latest version
+  command: "pip install --upgrade pip"
+  register: pipupgradeoutput
+- debug:
+    msg: "PIP upgraded with output {{ pipupgradeoutput.stdout }}"
+
+- pip: 
+    name: virtualenv
+
+- pip:
+    name: envdir
+
+- pip:
+    name: boto
+
+- name: Install Wal-E
+  command: "/usr/bin/pip3 install wal-e"
+
+
+#- pip: name="{{ 'virtualenv' , 'envdir' , 'boto' , 'wal-e' }}"
+#    name={{ item }}
+#    with_items: 
+#      - virtualenv
+#      - envdir
+#      - boto
+#      - wal-e
+#    name: virtualenv
+#    name: envdir
+#    name: boto
+#    name: wal-e
+  

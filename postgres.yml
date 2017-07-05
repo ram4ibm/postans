@@ -1,0 +1,15 @@
+---
+- name: call the server list
+  hosts: localhost
+ 
+  roles:
+  - common
+
+- name: Install Wale and Configure it to backup to S3
+  hosts: localhost
+
+  roles:
+  - pip
+#  - postgres
+#  - wale
+#  - backup

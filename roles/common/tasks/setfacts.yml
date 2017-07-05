@@ -1,0 +1,7 @@
+---
+- name: collec yum file location
+  command: "which yum"
+  register: yumloc
+- set_fact:
+    yumlocation: "{{ yumloc.stdout }}"
+  

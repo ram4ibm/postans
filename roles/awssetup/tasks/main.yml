@@ -1,0 +1,10 @@
+---
+- name: Configure wale variables
+  command: {{item}}
+  with_items:
+    - "echo {{ AWS_ACCESS_KEY_ID }} > {{ wale_config_dir_env }}/AWS_ACCESS_KEY_ID"
+    - "echo {{ AWS_SECRET_ACCESS_KEY }} > {{ wale_config_dir_env }}/AWS_SECRET_ACCESS_KEY"
+    - "echo {{ AWS_REGION }} > {{ wale_config_dir_env }}/AWS_REGION"
+    - "echo 's3://awstestbkp' > {{ wale_config_dir_env }}/WALE_S3_PREFIX"
+
+
